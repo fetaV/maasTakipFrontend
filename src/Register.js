@@ -7,7 +7,6 @@ function Register() {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState(null)
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -20,7 +19,6 @@ function Register() {
       window.location = "/"
     } catch (error) {
       console.error(error.response.data)
-      setError(error.response.data.message)
       toast.error(error.response.data.message)
     }
   }

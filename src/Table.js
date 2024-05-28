@@ -8,7 +8,6 @@ function Table() {
   const [username, setUsername] = useState("")
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState(null)
   const [editUserId, setEditUserId] = useState(null)
   const isAdmin = localStorage.getItem("isAdmin")
 
@@ -23,7 +22,6 @@ function Table() {
       window.location = "/table"
     } catch (error) {
       console.error(error.response.data)
-      setError(error.response.data.message)
       toast.error(error.response.data.message)
     }
   }

@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css"
 function Login() {
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
-  const [error, setError] = useState(null)
 
   const handleSubmit = async e => {
     e.preventDefault()
@@ -22,7 +21,6 @@ function Login() {
       window.location = "/harcama"
     } catch (error) {
       console.error(error.response.data)
-      setError(error.response.data.message)
       toast.error(error.response.data.message)
     }
   }
