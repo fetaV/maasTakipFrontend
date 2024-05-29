@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { jwtDecode } from "jwt-decode" // Değişiklik burada
+import { Link } from "react-router-dom"
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem("token"))
@@ -56,22 +57,22 @@ const Navbar = () => {
             <div className="d-flex align-items-center">
               {!isLoggedIn && (
                 <>
-                  <a
+                  <Link
                     data-mdb-ripple-init=""
                     type="button"
                     className="btn btn-success px-3 me-2"
-                    href="/login"
+                    to="login"
                   >
                     Login
-                  </a>
-                  <a
+                  </Link>
+                  <Link
                     data-mdb-ripple-init=""
                     type="button"
                     className="btn btn-primary me-3"
-                    href="/register"
+                    to="register"
                   >
                     Sign up for free
-                  </a>
+                  </Link>
                 </>
               )}
               {userName && (
