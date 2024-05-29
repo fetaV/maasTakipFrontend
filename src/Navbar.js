@@ -33,84 +33,88 @@ const Navbar = () => {
   return (
     <div>
       <>
-        <nav className="navbar navbar-expand-lg navbar-light bg-body-tertiary">
-          <div className="navbar-brand me-2">LOGO</div>
-          <button
-            data-mdb-collapse-init=""
-            className="navbar-toggler"
-            type="button"
-            data-mdb-target="#navbarButtonsExample"
-            aria-controls="navbarButtonsExample"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <i className="fas fa-bars" />
-          </button>
-          <div className="collapse navbar-collapse" id="navbarButtonsExample">
-            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-              <li className="nav-item">
-                <a href="/" className="nav-link">
-                  Home
-                </a>
-              </li>
-            </ul>
-            <div className="d-flex align-items-center">
-              {!isLoggedIn && (
-                <>
-                  <Link
-                    data-mdb-ripple-init=""
-                    type="button"
-                    className="btn btn-success px-3 me-2"
-                    to="login"
-                  >
-                    Login
-                  </Link>
-                  <Link
-                    data-mdb-ripple-init=""
-                    type="button"
-                    className="btn btn-primary me-3"
-                    to="register"
-                  >
-                    Sign up for free
-                  </Link>
-                </>
-              )}
-              {userName && (
-                <div
-                  data-mdb-ripple-init=""
-                  className="btn btn-dark px-3 me-3 dropdown-toggle"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                  role="button"
-                >
-                  {userName}
-                </div>
-              )}
-              <ul className="dropdown-menu dropdown-menu-end">
-                <li>
-                  <a className="dropdown-item" href="/harcama">
-                    Harcamalar
+        <nav className="navbar navbar-expand-lg bg-body-tertiary">
+          <div className="container-fluid">
+            <a className="navbar-brand" href="#">
+              Logo
+            </a>
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarTogglerDemo02"
+              aria-controls="navbarTogglerDemo02"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span className="navbar-toggler-icon" />
+            </button>
+            <div className="collapse navbar-collapse" id="navbarTogglerDemo02">
+              <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+                <li className="nav-item">
+                  <a href="/" className="nav-link">
+                    Home
                   </a>
                 </li>
-                {isAdmin && (
+              </ul>
+              <div className="d-flex align-items-center">
+                {!isLoggedIn && (
+                  <>
+                    <Link
+                      data-mdb-ripple-init=""
+                      type="button"
+                      className="btn btn-success px-3 me-2"
+                      to="login"
+                    >
+                      Login
+                    </Link>
+                    <Link
+                      data-mdb-ripple-init=""
+                      type="button"
+                      className="btn btn-primary me-3"
+                      to="register"
+                    >
+                      Sign up for free
+                    </Link>
+                  </>
+                )}
+                {userName && (
+                  <div
+                    data-mdb-ripple-init=""
+                    className="btn btn-dark px-3 me-3 dropdown-toggle"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                    role="button"
+                  >
+                    {userName}
+                  </div>
+                )}
+                <ul className="dropdown-menu dropdown-menu-end">
                   <li>
-                    <a className="dropdown-item" href="/table">
-                      Table
+                    <a className="dropdown-item" href="/harcama">
+                      Harcamalar
                     </a>
                   </li>
-                )}
-                <li>
-                  <hr className="dropdown-divider" />
-                </li>
-                <li>
-                  <button
-                    className="dropdown-item bg-danger text-white "
-                    onClick={handleLogout}
-                  >
-                    Logout
-                  </button>
-                </li>
-              </ul>
+                  {isAdmin && (
+                    <li>
+                      <a className="dropdown-item" href="/table">
+                        Table
+                      </a>
+                    </li>
+                  )}
+                  <li>
+                    <hr className="dropdown-divider" />
+                  </li>
+                  <li>
+                    <button
+                      className="dropdown-item bg-danger text-white "
+                      onClick={handleLogout}
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
         </nav>
