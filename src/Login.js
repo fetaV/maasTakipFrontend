@@ -19,7 +19,7 @@ function Login() {
       } else {
         localStorage.removeItem("isAdmin")
       }
-      window.location.assign("/harcama")
+      window.location = "/harcama"
     } catch (error) {
       console.error(error.response.data)
       toast.error(error.response.data.message)
