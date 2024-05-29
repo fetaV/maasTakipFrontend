@@ -30,7 +30,7 @@ function Login() {
     <div>
       <ToastContainer />
 
-      <form onSubmit={handleSubmit}>
+      <form>
         <section className="vh-100 gradient-custom">
           <div className="container h-100">
             <div className="row d-flex justify-content-center align-items-center h-50">
@@ -82,6 +82,7 @@ function Login() {
                       <button
                         className="btn btn-outline-light btn-lg px-5"
                         type="submit"
+                        onClick={handleSubmit}
                       >
                         Login
                       </button>
