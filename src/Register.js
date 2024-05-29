@@ -19,7 +19,10 @@ function Register() {
           password,
         }
       )
-      window.location = "/"
+      toast.success("Başarıyla Kayıt Oldunuz!")
+      setTimeout(() => {
+        window.location = "/login"
+      }, 500)
     } catch (error) {
       console.error(error.response.data)
       toast.error(error.response.data.message)
