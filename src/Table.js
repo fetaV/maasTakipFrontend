@@ -14,11 +14,14 @@ function Table() {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      await axios.post("/api/auth/register", {
-        username,
-        email,
-        password,
-      })
+      await axios.post(
+        "https://maastakipbackend.onrender.com/api/auth/register",
+        {
+          username,
+          email,
+          password,
+        }
+      )
       window.location = "/table"
     } catch (error) {
       console.error(error.response.data)
@@ -30,11 +33,14 @@ function Table() {
     const fetchUsers = async () => {
       try {
         const token = localStorage.getItem("token")
-        const response = await axios.get("/api/auth/users", {
-          headers: {
-            Authorization: token,
-          },
-        })
+        const response = await axios.get(
+          "https://maastakipbackend.onrender.com/api/auth/users",
+          {
+            headers: {
+              Authorization: token,
+            },
+          }
+        )
 
         const filteredUsers = response.data.filter(
           user => user.username !== "admin" && user.email !== "admin@admin.com"
@@ -52,11 +58,14 @@ function Table() {
   const handleDelete = async userId => {
     try {
       const token = localStorage.getItem("token")
-      await axios.delete(`/api/auth/users/${userId}`, {
-        headers: {
-          Authorization: token,
-        },
-      })
+      await axios.delete(
+        `https://maastakipbackend.onrender.com/api/auth/users/${userId}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       setUsers(users.filter(user => user._id !== userId))
       toast.success("User deleted successfully!")
     } catch (error) {
@@ -77,7 +86,7 @@ function Table() {
     try {
       const token = localStorage.getItem("token")
       const response = await axios.put(
-        `/api/auth/users/${userId}`,
+        `https://maastakipbackend.onrender.com/api/auth/users/${userId}`,
         { username, email, password },
         {
           headers: {

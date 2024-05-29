@@ -102,11 +102,15 @@ function Harcama() {
     try {
       const token = localStorage.getItem("token")
 
-      const response = await axios.post("/api/harcama", data, {
-        headers: {
-          Authorization: token,
-        },
-      })
+      const response = await axios.post(
+        "https://maastakipbackend.onrender.com/api/harcama",
+        data,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       setHarcamalar([...harcamalar, response.data])
       toast.success("Harcama eklendi!")
       setHarcama("")
@@ -131,7 +135,7 @@ function Harcama() {
     try {
       const token = localStorage.getItem("token")
       const response = await axios.put(
-        `/api/maas/${maasToEdit._id}`,
+        `https://maastakipbackend.onrender.com/api/maas/${maasToEdit._id}`,
         { maasMiktari: newMaas },
         {
           headers: {
@@ -165,7 +169,7 @@ function Harcama() {
       }
 
       const response = await axios.put(
-        `/api/harcama/${harcamaToEdit._id}`,
+        `https://maastakipbackend.onrender.com/api/harcama/${harcamaToEdit._id}`,
         data,
         {
           headers: {
@@ -192,7 +196,7 @@ function Harcama() {
     const token = localStorage.getItem("token")
 
     axios
-      .get("/api/maas", {
+      .get("https://maastakipbackend.onrender.com/api/maas", {
         headers: {
           Authorization: token,
         },
@@ -201,7 +205,7 @@ function Harcama() {
       .catch(err => console.error(err))
 
     axios
-      .get("/api/harcama", {
+      .get("https://maastakipbackend.onrender.com/api/harcama", {
         headers: {
           Authorization: token,
         },
@@ -217,7 +221,7 @@ function Harcama() {
     try {
       const token = localStorage.getItem("token")
       const response = await axios.post(
-        "/api/maas",
+        "https://maastakipbackend.onrender.com/api/maas",
         {
           maasMiktari,
         },
@@ -237,11 +241,14 @@ function Harcama() {
   const harcamaSil = async userId => {
     try {
       const token = localStorage.getItem("token")
-      await axios.delete(`/api/harcama/${userId}`, {
-        headers: {
-          Authorization: token,
-        },
-      })
+      await axios.delete(
+        `https://maastakipbackend.onrender.com/api/harcama/${userId}`,
+        {
+          headers: {
+            Authorization: token,
+          },
+        }
+      )
       setHarcamalar(harcamalar.filter(harcama => harcama._id !== userId))
       toast.success("Harcama başarıyla silindi!")
       setTimeout(() => {

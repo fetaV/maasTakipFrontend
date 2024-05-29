@@ -11,11 +11,14 @@ function Register() {
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      await axios.post("/api/auth/register", {
-        username,
-        email,
-        password,
-      })
+      await axios.post(
+        "https://maastakipbackend.onrender.com/api/auth/register",
+        {
+          username,
+          email,
+          password,
+        }
+      )
       window.location = "/"
     } catch (error) {
       console.error(error.response.data)
