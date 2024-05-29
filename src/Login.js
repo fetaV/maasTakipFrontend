@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
+import { Link } from "react-router-dom"
 import "react-toastify/dist/ReactToastify.css"
 
 function Login() {
@@ -18,7 +19,7 @@ function Login() {
       } else {
         localStorage.removeItem("isAdmin")
       }
-      window.location = "/harcama"
+      window.location.assign("/harcama")
     } catch (error) {
       console.error(error.response.data)
       toast.error(error.response.data.message)
@@ -99,9 +100,9 @@ function Login() {
                     <div>
                       <p className="mb-0">
                         Don't have an account?{" "}
-                        <a href="/register" className="text-white-50 fw-bold">
+                        <Link to="/register" className="text-white-50 fw-bold">
                           Sign Up
-                        </a>
+                        </Link>
                       </p>
                     </div>
                   </div>
