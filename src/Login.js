@@ -5,16 +5,17 @@ import { Link } from "react-router-dom"
 import "react-toastify/dist/ReactToastify.css"
 
 function Login() {
+  const backendUrl = process.env.NEXT_PUBLIC_BACKEND_URL
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
 
   const handleSubmit = async e => {
     e.preventDefault()
     try {
-      const response = await axios.post(
-        "https://maastakipbackend.onrender.com/api/auth/login",
-        { email, password }
-      )
+      const response = await axios.post(`${backendUrl}/api/auth/login`, {
+        email,
+        password,
+      })
       localStorage.setItem("token", response.data.token)
       localStorage.setItem("username", response.data.username)
       if (email === "admin@admin.com") {
