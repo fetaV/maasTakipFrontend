@@ -473,19 +473,19 @@ function Harcama() {
                     </td>
                     <td
                       data-title="Kalan İhtiyaç Tutarı"
-                      className={toplamIhtiyac < 0 ? "text-danger" : ""}
+                      className={toplamIhtiyac < 0 ? "bg-danger" : ""}
                     >
                       {ihtiyacMiktari - toplamIhtiyac}
                     </td>
                     <td
                       data-title="Kalan Yatırım Tutarı"
-                      className={toplamYatirim < 0 ? "text-danger" : ""}
+                      className={toplamYatirim < 0 ? "bg-danger" : ""}
                     >
                       {yatirimMiktari - toplamYatirim}
                     </td>
                     <td
                       data-title="Kalan Lüks Tutarı"
-                      className={toplamLuks < 0 ? "text-danger" : ""}
+                      className={toplamLuks < 0 ? "bg-danger" : ""}
                     >
                       {luksMiktari - toplamLuks}
                     </td>
