@@ -22,6 +22,7 @@ function Login() {
       } else {
         localStorage.removeItem("isAdmin")
       }
+      toast.success("Başarıyla giriş yapıldı. Yönlendiriliyorsunuz...")
       window.location = "/harcama"
     } catch (error) {
       console.error(error.response.data)
