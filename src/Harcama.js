@@ -473,19 +473,30 @@ function Harcama() {
                     </td>
                     <td
                       data-title="Kalan İhtiyaç Tutarı"
-                      className={toplamIhtiyac < 0 ? "bg-danger" : ""}
+                      style={
+                        ihtiyacMiktari - toplamIhtiyac < 0
+                          ? { color: "red" }
+                          : {}
+                      }
                     >
                       {ihtiyacMiktari - toplamIhtiyac}
                     </td>
                     <td
                       data-title="Kalan Yatırım Tutarı"
-                      className={toplamYatirim < 0 ? "bg-danger" : ""}
+                      style={
+                        yatirimMiktari - toplamYatirim < 0
+                          ? { color: "red" }
+                          : {}
+                      }
                     >
                       {yatirimMiktari - toplamYatirim}
                     </td>
+
                     <td
                       data-title="Kalan Lüks Tutarı"
-                      className={toplamLuks < 0 ? "bg-danger" : ""}
+                      style={
+                        luksMiktari - toplamLuks < 0 ? { color: "red" } : {}
+                      }
                     >
                       {luksMiktari - toplamLuks}
                     </td>
