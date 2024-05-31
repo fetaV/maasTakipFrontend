@@ -467,6 +467,14 @@ function Harcama() {
                         Lüks {getSortIcon("lux")}
                       </button>
                     </th>
+                    <th
+                      onClick={() => handleSort("borc")}
+                      style={{ width: "15%" }}
+                    >
+                      <button className="btn p-0 m-0 border-0">
+                        Borç{getSortIcon("borc")}
+                      </button>
+                    </th>
                     <th>Aksiyon</th>
                   </tr>
                 </thead>
@@ -505,6 +513,7 @@ function Harcama() {
                           <td data-title="Lüks">{harcama.miktar}</td>
                         </>
                       )}
+                      <td data-title="Aksiyon"></td>
                       <td data-title="Aksiyon">
                         <button
                           className="btn btn-warning me-2 text-white"
