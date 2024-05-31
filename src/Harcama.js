@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { FaPen } from "react-icons/fa6"
+import { FaPen, FaAngleUp, FaAngleDown } from "react-icons/fa6"
 
 function Harcama() {
   const [maaslar, setMaaslar] = useState([])
@@ -42,9 +42,9 @@ function Harcama() {
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
 
   const handleSort = key => {
-    let direction = "ascending"
-    if (sortConfig.key === key && sortConfig.direction === "ascending") {
-      direction = "descending"
+    let direction = "descending"
+    if (sortConfig.key === key && sortConfig.direction === "descending") {
+      direction = "ascending"
     }
     setSortConfig({ key, direction })
   }
@@ -73,6 +73,17 @@ function Harcama() {
     }
     return 0
   })
+
+  const getSortIcon = key => {
+    if (sortConfig.key === key) {
+      return sortConfig.direction === "ascending" ? (
+        <FaAngleUp />
+      ) : (
+        <FaAngleDown />
+      )
+    }
+    return null
+  }
 
   const harcamaEditModalOpen = userId => {
     const modalEdit = harcamalar.find(modal => modal._id === userId)
@@ -432,9 +443,30 @@ function Harcama() {
                 <thead>
                   <tr>
                     <th>Açıklama</th>
-                    <th onClick={() => handleSort("ihtiyac")}>İhtiyaç</th>
-                    <th onClick={() => handleSort("yatirim")}>Yatırım</th>
-                    <th onClick={() => handleSort("lux")}>Lüks</th>
+                    <th
+                      onClick={() => handleSort("ihtiyac")}
+                      style={{ width: "15%" }}
+                    >
+                      <button className="btn p-0 m-0 border-0">
+                        İhtiyaç {getSortIcon("ihtiyac")}
+                      </button>
+                    </th>
+                    <th
+                      onClick={() => handleSort("yatirim")}
+                      style={{ width: "15%" }}
+                    >
+                      <button className="btn p-0 m-0 border-0">
+                        Yatırım {getSortIcon("yatirim")}
+                      </button>
+                    </th>
+                    <th
+                      onClick={() => handleSort("lux")}
+                      style={{ width: "15%" }}
+                    >
+                      <button className="btn p-0 m-0 border-0">
+                        Lüks {getSortIcon("lux")}
+                      </button>
+                    </th>
                     <th>Aksiyon</th>
                   </tr>
                 </thead>
