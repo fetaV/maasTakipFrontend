@@ -17,6 +17,7 @@ function Harcama() {
   const [maasToEdit, setMaasToEdit] = useState(null)
   const [harcamaToEdit, setHarcamaToEdit] = useState(null)
   const [deleteId, setDeleteId] = useState(null)
+  const [sortConfig, setSortConfig] = useState({ key: "", direction: "" })
   const [selectedOption, setSelectedOption] = useState(
     "Harcama seçeneği seçiniz"
   )
@@ -39,6 +40,39 @@ function Harcama() {
   const toplamLuks = harcamalar
     .filter(harcama => harcama.kullanim === 2)
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
+
+  const handleSort = key => {
+    let direction = "ascending"
+    if (sortConfig.key === key && sortConfig.direction === "ascending") {
+      direction = "descending"
+    }
+    setSortConfig({ key, direction })
+  }
+
+  const sortedHarcamalar = [...harcamalar].sort((a, b) => {
+    if (sortConfig.key) {
+      let aValue, bValue
+      if (sortConfig.key === "ihtiyac") {
+        aValue = a.kullanim === 0 ? a.miktar : 0
+        bValue = b.kullanim === 0 ? b.miktar : 0
+      } else if (sortConfig.key === "yatirim") {
+        aValue = a.kullanim === 1 ? a.miktar : 0
+        bValue = b.kullanim === 1 ? b.miktar : 0
+      } else if (sortConfig.key === "lux") {
+        aValue = a.kullanim === 2 ? a.miktar : 0
+        bValue = b.kullanim === 2 ? b.miktar : 0
+      }
+
+      if (aValue < bValue) {
+        return sortConfig.direction === "ascending" ? -1 : 1
+      }
+      if (aValue > bValue) {
+        return sortConfig.direction === "ascending" ? 1 : -1
+      }
+      return 0
+    }
+    return 0
+  })
 
   const harcamaEditModalOpen = userId => {
     const modalEdit = harcamalar.find(modal => modal._id === userId)
@@ -398,14 +432,14 @@ function Harcama() {
                 <thead>
                   <tr>
                     <th>Açıklama</th>
-                    <th>İhtiyaç</th>
-                    <th>Yatırım</th>
-                    <th>Lüks</th>
+                    <th onClick={() => handleSort("ihtiyac")}>İhtiyaç</th>
+                    <th onClick={() => handleSort("yatirim")}>Yatırım</th>
+                    <th onClick={() => handleSort("lux")}>Lüks</th>
                     <th>Aksiyon</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {harcamalar.map((harcama, index) => (
+                  {sortedHarcamalar.map((harcama, index) => (
                     <tr key={index}>
                       <td data-title="Harcama Seçeneği">{harcama.aciklama}</td>
                       {harcama.kullanim === 0 ? (
