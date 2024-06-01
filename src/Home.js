@@ -1,6 +1,11 @@
 import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
-import { FaWallet, FaChartLine, FaMoneyBillWave } from "react-icons/fa"
+import {
+  FaWallet,
+  FaChartLine,
+  FaMoneyBillWave,
+  FaCheckCircle,
+} from "react-icons/fa"
 
 function Home() {
   return (
@@ -67,6 +72,105 @@ function Home() {
           </div>
         </div>
       </div>
+
+      {/* How It Works Section */}
+      <section className="bg-light py-5">
+        <div className="container">
+          <h2 className="text-center mb-4">Nasıl Çalışır?</h2>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card shadow-sm">
+                <div className="card-body text-center">
+                  <FaCheckCircle size={50} className="mb-3 text-success" />
+                  <h4 className="card-title">Adım 1: Maaşınızı Girin</h4>
+                  <p className="card-text">
+                    Maaşınızı sisteme girerek gelirinizi hesaplayın.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="card shadow-sm">
+                <div className="card-body text-center">
+                  <FaCheckCircle size={50} className="mb-3 text-success" />
+                  <h4 className="card-title">Adım 2: Kategorilere Ayırın</h4>
+                  <p className="card-text">
+                    Gelirinizi ihtiyaçlar, lüks harcamalar ve yatırımlar olarak
+                    kategorilere ayırın.
+                  </p>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="card shadow-sm">
+                <div className="card-body text-center">
+                  <FaCheckCircle size={50} className="mb-3 text-success" />
+                  <h4 className="card-title">Adım 3: Takip Edin</h4>
+                  <p className="card-text">
+                    Harcamalarınızı ve yatırımlarınızı düzenli olarak takip
+                    edin.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-5">
+        <div className="container">
+          <h2 className="text-center mb-4">Müşteri Yorumları</h2>
+          <div className="row">
+            <div className="col-md-4">
+              <div className="card shadow-sm">
+                <div className="card-body">
+                  <p className="card-text">
+                    "50-30-20 uygulaması sayesinde harcamalarımı çok daha iyi
+                    yönetiyorum. Tavsiye ederim!"
+                  </p>
+                  <h5 className="card-title">- Ayşe K.</h5>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="card shadow-sm">
+                <div className="card-body">
+                  <p className="card-text">
+                    "Bu uygulama ile yatırım yapmayı öğrendim ve finansal
+                    hedeflerime ulaştım."
+                  </p>
+                  <h5 className="card-title">- Mehmet T.</h5>
+                </div>
+              </div>
+            </div>
+            <div className="col-md-4">
+              <div className="card shadow-sm">
+                <div className="card-body">
+                  <p className="card-text">
+                    "Borçlarımı takip etmek hiç bu kadar kolay olmamıştı.
+                    Teşekkürler!"
+                  </p>
+                  <h5 className="card-title">- Zeynep A.</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action Section */}
+      <section className="bg-primary text-white text-center py-5">
+        <div className="container">
+          <h2 className="mb-4">Hemen Başlayın</h2>
+          <p className="lead mb-4">
+            Finansal özgürlüğünüz için ilk adımı atın.
+          </p>
+          <a href="/" className="btn btn-light btn-lg mx-2">
+            Şimdi Üye Olun
+          </a>
+        </div>
+      </section>
 
       {/* Footer */}
       <footer className="bg-dark text-white text-center py-4">
