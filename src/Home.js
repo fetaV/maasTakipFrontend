@@ -1,5 +1,6 @@
 import React from "react"
 import "bootstrap/dist/css/bootstrap.min.css"
+import { FaWallet, FaChartLine, FaMoneyBillWave } from "react-icons/fa"
 
 function Home() {
   return (
@@ -15,7 +16,7 @@ function Home() {
             yatırımlarınızı ve lüks harcamalarınızı düzenleyin.
           </p>
           <p>
-            <a href="/login" className="btn btn-light btn-lg mx-2">
+            <a href="/" className="btn btn-light btn-lg mx-2">
               Uygulamayı Kullan
             </a>
             <a href="/" className="btn btn-outline-light btn-lg mx-2">
@@ -31,7 +32,8 @@ function Home() {
           <div className="col-md-4 p-1">
             <div className="card shadow-sm">
               <div className="card-body">
-                <h2 className="card-title">Harcamalarınızı Yönetin</h2>
+                <FaWallet size={50} className="mb-3 text-primary" />
+                <h4 className="card-title">Harcamalarınızı Yönetin</h4>
                 <p className="card-text">
                   Aylık gelirinizin %50'sini ihtiyaçlarınıza, %30'unu lüks
                   harcamalarınıza ve %20'sini yatırımlarınıza ayırın.
@@ -42,7 +44,8 @@ function Home() {
           <div className="col-md-4 p-1">
             <div className="card shadow-sm">
               <div className="card-body">
-                <h2 className="card-title">Borç Takibi</h2>
+                <FaMoneyBillWave size={50} className="mb-3 text-success" />
+                <h4 className="card-title">Borç Takibi</h4>
                 <p className="card-text">
                   Borçlarınızı kaydedin ve ödemelerinizi düzenli olarak takip
                   edin.
@@ -53,7 +56,8 @@ function Home() {
           <div className="col-md-4 p-1">
             <div className="card shadow-sm">
               <div className="card-body">
-                <h2 className="card-title">Yatırımlarınızı Planlayın</h2>
+                <FaChartLine size={50} className="mb-3 text-info" />
+                <h4 className="card-title">Yatırımlarınızı Planlayın</h4>
                 <p className="card-text">
                   Yatırımlarınızı kolayca takip edin ve finansal hedeflerinize
                   ulaşın.
