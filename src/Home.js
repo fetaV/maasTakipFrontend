@@ -35,7 +35,7 @@ function Home() {
       <div className="container py-5">
         <div className="row text-center">
           <div className="col-md-4 p-1">
-            <div className="card shadow-sm">
+            <div className="card shadow-sm h-100">
               <div className="card-body">
                 <FaWallet size={50} className="mb-3 text-primary" />
                 <h4 className="card-title">Harcamalarınızı Yönetin</h4>
@@ -47,7 +47,7 @@ function Home() {
             </div>
           </div>
           <div className="col-md-4 p-1">
-            <div className="card shadow-sm">
+            <div className="card shadow-sm h-100">
               <div className="card-body">
                 <FaMoneyBillWave size={50} className="mb-3 text-success" />
                 <h4 className="card-title">Borç Takibi</h4>
@@ -59,7 +59,7 @@ function Home() {
             </div>
           </div>
           <div className="col-md-4 p-1">
-            <div className="card shadow-sm">
+            <div className="card shadow-sm h-100">
               <div className="card-body">
                 <FaChartLine size={50} className="mb-3 text-info" />
                 <h4 className="card-title">Yatırımlarınızı Planlayın</h4>
@@ -77,10 +77,10 @@ function Home() {
       <section className="bg-light py-5">
         <div className="container">
           <h2 className="text-center mb-4">Nasıl Çalışır?</h2>
-          <div className="row">
-            <div className="col-md-4">
-              <div className="card shadow-sm">
-                <div className="card-body text-center">
+          <div className="row text-center">
+            <div className="col-md-4 p-1">
+              <div className="card shadow-sm h-100">
+                <div className="card-body">
                   <FaCheckCircle size={50} className="mb-3 text-success" />
                   <h4 className="card-title">Adım 1: Maaşınızı Girin</h4>
                   <p className="card-text">
@@ -89,9 +89,9 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="card shadow-sm">
-                <div className="card-body text-center">
+            <div className="col-md-4 p-1">
+              <div className="card shadow-sm h-100">
+                <div className="card-body">
                   <FaCheckCircle size={50} className="mb-3 text-success" />
                   <h4 className="card-title">Adım 2: Kategorilere Ayırın</h4>
                   <p className="card-text">
@@ -101,9 +101,9 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="card shadow-sm">
-                <div className="card-body text-center">
+            <div className="col-md-4 p-1">
+              <div className="card shadow-sm h-100">
+                <div className="card-body">
                   <FaCheckCircle size={50} className="mb-3 text-success" />
                   <h4 className="card-title">Adım 3: Takip Edin</h4>
                   <p className="card-text">
@@ -121,9 +121,9 @@ function Home() {
       <section className="py-5">
         <div className="container">
           <h2 className="text-center mb-4">Müşteri Yorumları</h2>
-          <div className="row">
-            <div className="col-md-4">
-              <div className="card shadow-sm">
+          <div className="row text-center">
+            <div className="col-md-4 p-1">
+              <div className="card shadow-sm h-100">
                 <div className="card-body">
                   <p className="card-text">
                     "50-30-20 uygulaması sayesinde harcamalarımı çok daha iyi
@@ -133,8 +133,8 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="card shadow-sm">
+            <div className="col-md-4 p-1">
+              <div className="card shadow-sm h-100">
                 <div className="card-body">
                   <p className="card-text">
                     "Bu uygulama ile yatırım yapmayı öğrendim ve finansal
@@ -144,8 +144,8 @@ function Home() {
                 </div>
               </div>
             </div>
-            <div className="col-md-4">
-              <div className="card shadow-sm">
+            <div className="col-md-4 p-1">
+              <div className="card shadow-sm h-100">
                 <div className="card-body">
                   <p className="card-text">
                     "Borçlarımı takip etmek hiç bu kadar kolay olmamıştı.
