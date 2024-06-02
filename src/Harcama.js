@@ -269,31 +269,29 @@ function Harcama() {
         <div className="col-md-3">
           <h3>Parasal Düzenlemeler</h3>
           <form className="mt-3">
-            {Array.isArray(maaslar) &&
-              !maaslar.some(maas => maas.maasMiktari) && (
-                <div className="form-group mt-3 border rounded p-3 mb-3">
-                  <label htmlFor="typeRepsX" className="form-label">
-                    Maaşınızı Giriniz
-                  </label>
-                  <input
-                    type="number"
-                    className="form-control"
-                    id="typeRepsX"
-                    placeholder="Maaş"
-                    value={maasMiktari}
-                    required
-                    onChange={e => setMaasMiktari(e.target.value)}
-                  />
-                  <button
-                    type="submit"
-                    onClick={maasKaydet}
-                    className="btn btn-primary mt-3"
-                  >
-                    Save
-                  </button>
-                </div>
-              )}
-
+            {!maaslar.some(maas => maas.maasMiktari) && (
+              <div className="form-group mt-3 border rounded p-3 mb-3">
+                <label htmlFor="typeRepsX" className="form-label">
+                  Maaşınızı Giriniz
+                </label>
+                <input
+                  type="number"
+                  className="form-control"
+                  id="typeRepsX"
+                  placeholder="Maaş"
+                  value={maasMiktari}
+                  required
+                  onChange={e => setMaasMiktari(e.target.value)}
+                />
+                <button
+                  type="submit"
+                  onClick={maasKaydet}
+                  className="btn btn-primary mt-3"
+                >
+                  Save
+                </button>
+              </div>
+            )}
             <div className="border rounded p-3 mb-3">
               <form>
                 <div className="form-group mt-3">
