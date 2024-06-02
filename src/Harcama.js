@@ -61,7 +61,7 @@ function Harcama() {
       } else if (sortConfig.key === "lux") {
         aValue = a.kullanim === 2 ? a.miktar : 0
         bValue = b.kullanim === 2 ? b.miktar : 0
-      } else if (sortConfig.key === "borç") {
+      } else if (sortConfig.key === "borc") {
         aValue = a.kullanim === 2 ? a.miktar : 0
         bValue = b.kullanim === 2 ? b.miktar : 0
       }
@@ -534,7 +534,7 @@ function Harcama() {
                             <b>0</b>
                           </td>
                         </>
-                      ) : harcama.kullanim === 3 ? (
+                      ) : (
                         <>
                           <td data-title="İhtiyaç" className="text-danger">
                             <b>0</b>
@@ -545,7 +545,7 @@ function Harcama() {
                           <td data-title="Lüks">0</td>
                           <td data-title="Borç">{harcama.miktar}</td>
                         </>
-                      ) : null}
+                      )}
                       <td data-title="Aksiyon">
                         <button
                           className="btn btn-warning me-2 text-white"
