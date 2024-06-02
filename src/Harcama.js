@@ -63,6 +63,7 @@ function Harcama() {
   }
 
   const kullanimOptionSelect = option => {
+    console.log("bu")
     setSelectedOption(option)
   }
   const kullanimOptionSelectModal = option => {
@@ -90,7 +91,7 @@ function Harcama() {
       kullanimTipi = 1
     } else if (selectedOption === "Lüks") {
       kullanimTipi = 2
-    } else if (selectedOption === "Borç") {
+    } else if (selectedOption === "Borc") {
       kullanimTipi = 3
     }
 
@@ -344,7 +345,7 @@ function Harcama() {
                       <li>
                         <div
                           className="dropdown-item"
-                          onClick={() => kullanimOptionSelect("Borç")}
+                          onClick={() => kullanimOptionSelect("Borc")}
                         >
                           Borç
                         </div>
@@ -581,7 +582,7 @@ function Harcama() {
                       <li>
                         <div
                           className="dropdown-item"
-                          onClick={() => kullanimOptionSelectModal("Borç")}
+                          onClick={() => kullanimOptionSelectModal("Borc")}
                         >
                           Borç
                         </div>
