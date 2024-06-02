@@ -61,7 +61,7 @@ function Harcama() {
       } else if (sortConfig.key === "lux") {
         aValue = a.kullanim === 2 ? a.miktar : 0
         bValue = b.kullanim === 2 ? b.miktar : 0
-      } else if (sortConfig.key === "borc") {
+      } else if (sortConfig.key === "Borç") {
         aValue = a.kullanim === 2 ? a.miktar : 0
         bValue = b.kullanim === 2 ? b.miktar : 0
       }
@@ -481,11 +481,11 @@ function Harcama() {
                       </button>
                     </th>
                     <th
-                      onClick={() => handleSort("borc")}
+                      onClick={() => handleSort("Borç")}
                       style={{ width: "15%" }}
                     >
                       <button className="btn p-0 m-0 border-0">
-                        Borç{getSortIcon("borc")}
+                        Borç{getSortIcon("Borç")}
                       </button>
                     </th>
                     <th>Aksiyon</th>
