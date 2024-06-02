@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import { toast, ToastContainer } from "react-toastify"
 import "react-toastify/dist/ReactToastify.css"
-import { FaPen, FaAngleUp, FaAngleDown } from "react-icons/fa6"
+import { FaPen } from "react-icons/fa6"
 
 function Harcama() {
   const [maaslar, setMaaslar] = useState([])
@@ -17,7 +17,6 @@ function Harcama() {
   const [maasToEdit, setMaasToEdit] = useState(null)
   const [harcamaToEdit, setHarcamaToEdit] = useState(null)
   const [deleteId, setDeleteId] = useState(null)
-  const [sortConfig, setSortConfig] = useState({ key: "", direction: "" })
   const [selectedOption, setSelectedOption] = useState(
     "Harcama seçeneği seçiniz"
   )
@@ -40,50 +39,6 @@ function Harcama() {
   const toplamLuks = harcamalar
     .filter(harcama => harcama.kullanim === 2)
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
-
-  const handleSort = key => {
-    let direction = "descending"
-    if (sortConfig.key === key && sortConfig.direction === "descending") {
-      direction = "ascending"
-    }
-    setSortConfig({ key, direction })
-  }
-
-  const sortedHarcamalar = [...harcamalar].sort((a, b) => {
-    if (sortConfig.key) {
-      let aValue, bValue
-      if (sortConfig.key === "ihtiyac") {
-        aValue = a.kullanim === 0 ? a.miktar : 0
-        bValue = b.kullanim === 0 ? b.miktar : 0
-      } else if (sortConfig.key === "yatirim") {
-        aValue = a.kullanim === 1 ? a.miktar : 0
-        bValue = b.kullanim === 1 ? b.miktar : 0
-      } else if (sortConfig.key === "lux") {
-        aValue = a.kullanim === 2 ? a.miktar : 0
-        bValue = b.kullanim === 2 ? b.miktar : 0
-      }
-
-      if (aValue < bValue) {
-        return sortConfig.direction === "ascending" ? -1 : 1
-      }
-      if (aValue > bValue) {
-        return sortConfig.direction === "ascending" ? 1 : -1
-      }
-      return 0
-    }
-    return 0
-  })
-
-  const getSortIcon = key => {
-    if (sortConfig.key === key) {
-      return sortConfig.direction === "ascending" ? (
-        <FaAngleUp />
-      ) : (
-        <FaAngleDown />
-      )
-    }
-    return null
-  }
 
   const harcamaEditModalOpen = userId => {
     const modalEdit = harcamalar.find(modal => modal._id === userId)
@@ -108,9 +63,11 @@ function Harcama() {
   }
 
   const kullanimOptionSelect = option => {
+    console.log("bu")
     setSelectedOption(option)
   }
   const kullanimOptionSelectModal = option => {
+    console.log("bumodal")
     setSelectedOptionModal(option)
 
     let kullanimValue
@@ -119,8 +76,6 @@ function Harcama() {
     } else if (option === "Yatırım") {
       kullanimValue = 1
     } else if (option === "Lüks") {
-      kullanimValue = 2
-    } else if (option === "Borç") {
       kullanimValue = 2
     }
     setModalKullanim(kullanimValue)
@@ -136,6 +91,8 @@ function Harcama() {
       kullanimTipi = 1
     } else if (selectedOption === "Lüks") {
       kullanimTipi = 2
+    } else if (selectedOption === "Borc") {
+      kullanimTipi = 3
     }
 
     const data = {
@@ -147,15 +104,11 @@ function Harcama() {
     try {
       const token = localStorage.getItem("token")
 
-      const response = await axios.post(
-        "https://maastakipbackend.onrender.com/api/harcama",
-        data,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      )
+      const response = await axios.post("/api/harcama", data, {
+        headers: {
+          Authorization: token,
+        },
+      })
       setHarcamalar([...harcamalar, response.data])
       toast.success("Harcama eklendi!")
       setHarcama("")
@@ -179,8 +132,8 @@ function Harcama() {
 
     try {
       const token = localStorage.getItem("token")
-      const response = await axios.put(
-        `https://maastakipbackend.onrender.com/api/maas/${maasToEdit._id}`,
+      await axios.put(
+        `/api/maas/${maasToEdit._id}`,
         { maasMiktari: newMaas },
         {
           headers: {
@@ -188,7 +141,6 @@ function Harcama() {
           },
         }
       )
-      console.log(response)
       toast.success("User updated successfully!")
       setTimeout(() => {
         window.location.reload()
@@ -214,7 +166,7 @@ function Harcama() {
       }
 
       const response = await axios.put(
-        `https://maastakipbackend.onrender.com/api/harcama/${harcamaToEdit._id}`,
+        `/api/harcama/${harcamaToEdit._id}`,
         data,
         {
           headers: {
@@ -241,7 +193,7 @@ function Harcama() {
     const token = localStorage.getItem("token")
 
     axios
-      .get("https://maastakipbackend.onrender.com/api/maas", {
+      .get("/api/maas", {
         headers: {
           Authorization: token,
         },
@@ -250,7 +202,7 @@ function Harcama() {
       .catch(err => console.error(err))
 
     axios
-      .get("https://maastakipbackend.onrender.com/api/harcama", {
+      .get("/api/harcama", {
         headers: {
           Authorization: token,
         },
@@ -266,7 +218,7 @@ function Harcama() {
     try {
       const token = localStorage.getItem("token")
       const response = await axios.post(
-        "https://maastakipbackend.onrender.com/api/maas",
+        "/api/maas",
         {
           maasMiktari,
         },
@@ -286,14 +238,11 @@ function Harcama() {
   const harcamaSil = async userId => {
     try {
       const token = localStorage.getItem("token")
-      await axios.delete(
-        `https://maastakipbackend.onrender.com/api/harcama/${userId}`,
-        {
-          headers: {
-            Authorization: token,
-          },
-        }
-      )
+      await axios.delete(`/api/harcama/${userId}`, {
+        headers: {
+          Authorization: token,
+        },
+      })
       setHarcamalar(harcamalar.filter(harcama => harcama._id !== userId))
       toast.success("Harcama başarıyla silindi!")
       setTimeout(() => {
@@ -396,7 +345,7 @@ function Harcama() {
                       <li>
                         <div
                           className="dropdown-item"
-                          onClick={() => kullanimOptionSelect("Borç")}
+                          onClick={() => kullanimOptionSelect("Borc")}
                         >
                           Borç
                         </div>
@@ -451,43 +400,15 @@ function Harcama() {
                 <thead>
                   <tr>
                     <th>Açıklama</th>
-                    <th
-                      onClick={() => handleSort("ihtiyac")}
-                      style={{ width: "15%" }}
-                    >
-                      <button className="btn p-0 m-0 border-0">
-                        İhtiyaç {getSortIcon("ihtiyac")}
-                      </button>
-                    </th>
-                    <th
-                      onClick={() => handleSort("yatirim")}
-                      style={{ width: "15%" }}
-                    >
-                      <button className="btn p-0 m-0 border-0">
-                        Yatırım {getSortIcon("yatirim")}
-                      </button>
-                    </th>
-                    <th
-                      onClick={() => handleSort("lux")}
-                      style={{ width: "15%" }}
-                    >
-                      <button className="btn p-0 m-0 border-0">
-                        Lüks {getSortIcon("lux")}
-                      </button>
-                    </th>
-                    <th
-                      onClick={() => handleSort("borc")}
-                      style={{ width: "15%" }}
-                    >
-                      <button className="btn p-0 m-0 border-0">
-                        Borç{getSortIcon("borc")}
-                      </button>
-                    </th>
+                    <th>İhtiyaç</th>
+                    <th>Yatırım</th>
+                    <th>Lüks</th>
+                    <th>Borç</th>
                     <th>Aksiyon</th>
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedHarcamalar.map((harcama, index) => (
+                  {harcamalar.map((harcama, index) => (
                     <tr key={index}>
                       <td data-title="Harcama Seçeneği">{harcama.aciklama}</td>
                       {harcama.kullanim === 0 ? (
@@ -510,6 +431,16 @@ function Harcama() {
                             <b>0</b>
                           </td>
                         </>
+                      ) : harcama.kullanim === 2 ? (
+                        <>
+                          <td data-title="İhtiyaç" className="text-danger">
+                            <b>0</b>
+                          </td>
+                          <td data-title="Yatırım">{harcama.miktar}</td>
+                          <td data-title="Lüks" className="text-danger">
+                            <b>0</b>
+                          </td>
+                        </>
                       ) : (
                         <>
                           <td data-title="İhtiyaç" className="text-danger">
@@ -518,10 +449,12 @@ function Harcama() {
                           <td data-title="Yatırım" className="text-danger">
                             <b>0</b>
                           </td>
-                          <td data-title="Lüks">{harcama.miktar}</td>
+                          <td data-title="Yatırım" className="text-danger">
+                            <b>0</b>
+                          </td>
+                          <td data-title="Borç">{harcama.miktar}</td>
                         </>
                       )}
-                      <td data-title="Aksiyon"></td>
                       <td data-title="Aksiyon">
                         <button
                           className="btn btn-warning me-2 text-white"
@@ -554,33 +487,13 @@ function Harcama() {
                     <td>
                       <b>Kalan Tutar</b>
                     </td>
-                    <td
-                      data-title="Kalan İhtiyaç Tutarı"
-                      style={
-                        ihtiyacMiktari - toplamIhtiyac < 0
-                          ? { color: "red" }
-                          : {}
-                      }
-                    >
+                    <td data-title="Kalan İhtiyaç Tutarı">
                       {ihtiyacMiktari - toplamIhtiyac}
                     </td>
-                    <td
-                      data-title="Kalan Yatırım Tutarı"
-                      style={
-                        yatirimMiktari - toplamYatirim < 0
-                          ? { color: "red" }
-                          : {}
-                      }
-                    >
+                    <td data-title="Kalan Yatırım Tutarı">
                       {yatirimMiktari - toplamYatirim}
                     </td>
-
-                    <td
-                      data-title="Kalan Lüks Tutarı"
-                      style={
-                        luksMiktari - toplamLuks < 0 ? { color: "red" } : {}
-                      }
-                    >
+                    <td data-title="Kalan Lüks Tutarı">
                       {luksMiktari - toplamLuks}
                     </td>
                   </tr>
@@ -669,7 +582,7 @@ function Harcama() {
                       <li>
                         <div
                           className="dropdown-item"
-                          onClick={() => kullanimOptionSelectModal("Borç")}
+                          onClick={() => kullanimOptionSelectModal("Borc")}
                         >
                           Borç
                         </div>
