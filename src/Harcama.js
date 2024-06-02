@@ -24,6 +24,11 @@ function Harcama() {
     "Harcama seçeneği seçiniz"
   )
 
+  if (harcamalar.length === 0) {
+    console.error("Harcamalar dizisi boş!")
+    // Harcamalar boş ise, hatayı ele alabilir veya uygun bir şekilde çözebilirsiniz.
+  }
+
   const yatirimMiktari = maaslar.length > 0 ? maaslar[0].maasMiktari * 0.2 : ""
   const luksMiktari = maaslar.length > 0 ? maaslar[0].maasMiktari * 0.3 : ""
   const ihtiyacMiktari = maaslar.length > 0 ? maaslar[0].maasMiktari * 0.5 : ""
