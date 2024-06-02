@@ -501,6 +501,9 @@ function Harcama() {
                           <td data-title="Lüks" className="text-danger">
                             <b>0</b>
                           </td>
+                          <td data-title="Borç" className="text-danger">
+                            <b>0</b>
+                          </td>
                         </>
                       ) : harcama.kullanim === 1 ? (
                         <>
@@ -511,8 +514,11 @@ function Harcama() {
                           <td data-title="Lüks" className="text-danger">
                             <b>0</b>
                           </td>
+                          <td data-title="Borç" className="text-danger">
+                            <b>0</b>
+                          </td>
                         </>
-                      ) : (
+                      ) : harcama.kullanim === 2 ? (
                         <>
                           <td data-title="İhtiyaç" className="text-danger">
                             <b>0</b>
@@ -521,8 +527,22 @@ function Harcama() {
                             <b>0</b>
                           </td>
                           <td data-title="Lüks">{harcama.miktar}</td>
+                          <td data-title="Borç" className="text-danger">
+                            <b>0</b>
+                          </td>
                         </>
-                      )}
+                      ) : harcama.kullanim === 3 ? (
+                        <>
+                          <td data-title="İhtiyaç" className="text-danger">
+                            <b>0</b>
+                          </td>
+                          <td data-title="Yatırım" className="text-danger">
+                            <b>0</b>
+                          </td>
+                          <td data-title="Lüks"></td>
+                          <td data-title="Borç">{harcama.miktar}</td>
+                        </>
+                      ) : null}
                       <td data-title="Aksiyon"></td>
                       <td data-title="Aksiyon">
                         <button
