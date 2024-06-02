@@ -261,7 +261,6 @@ function Harcama() {
         },
       })
       .then(res => {
-        console.log(res)
         setHarcamalar(res.data)
       })
       .catch(err => console.error(err))
