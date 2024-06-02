@@ -61,6 +61,9 @@ function Harcama() {
       } else if (sortConfig.key === "lux") {
         aValue = a.kullanim === 2 ? a.miktar : 0
         bValue = b.kullanim === 2 ? b.miktar : 0
+      } else if (sortConfig.key === "borc") {
+        aValue = a.kullanim === 2 ? a.miktar : 0
+        bValue = b.kullanim === 2 ? b.miktar : 0
       }
 
       if (aValue < bValue) {
