@@ -543,7 +543,6 @@ function Harcama() {
                           <td data-title="Borç">{harcama.miktar}</td>
                         </>
                       ) : null}
-                      <td data-title="Aksiyon"></td>
                       <td data-title="Aksiyon">
                         <button
                           className="btn btn-warning me-2 text-white"
