@@ -123,7 +123,7 @@ function Harcama() {
     } else if (option === "Lüks") {
       kullanimValue = 2
     } else if (option === "Borç") {
-      kullanimValue = 2
+      kullanimValue = 3
     }
     setModalKullanim(kullanimValue)
   }
