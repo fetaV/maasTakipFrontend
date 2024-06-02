@@ -54,6 +54,8 @@ function Harcama() {
       kullanimText = "Yatırım"
     } else if (modalEdit.kullanim === 2) {
       kullanimText = "Lüks"
+    } else if (modalEdit.kullanim === 3) {
+      kullanimText = "Borç"
     }
     setSelectedOptionModal(kullanimText)
   }
@@ -63,7 +65,6 @@ function Harcama() {
   }
 
   const kullanimOptionSelect = option => {
-    console.log("bu")
     setSelectedOption(option)
   }
   const kullanimOptionSelectModal = option => {
@@ -91,7 +92,7 @@ function Harcama() {
       kullanimTipi = 1
     } else if (selectedOption === "Lüks") {
       kullanimTipi = 2
-    } else if (selectedOption === "Borc") {
+    } else if (selectedOption === "Borç") {
       kullanimTipi = 3
     }
 
@@ -345,7 +346,7 @@ function Harcama() {
                       <li>
                         <div
                           className="dropdown-item"
-                          onClick={() => kullanimOptionSelect("Borc")}
+                          onClick={() => kullanimOptionSelect("Borç")}
                         >
                           Borç
                         </div>
@@ -582,7 +583,7 @@ function Harcama() {
                       <li>
                         <div
                           className="dropdown-item"
-                          onClick={() => kullanimOptionSelectModal("Borc")}
+                          onClick={() => kullanimOptionSelectModal("Borç")}
                         >
                           Borç
                         </div>
