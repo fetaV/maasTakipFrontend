@@ -254,13 +254,14 @@ function Harcama() {
       .then(res => setMaaslar(res.data))
       .catch(err => console.error(err))
 
-    axios
+    const response = axios
       .get("https://maastakipbackend.onrender.com/api/harcama", {
         headers: {
           Authorization: token,
         },
       })
       .then(res => {
+        console.log(response)
         setHarcamalar(res.data)
       })
       .catch(err => console.error(err))
