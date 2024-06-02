@@ -40,6 +40,10 @@ function Harcama() {
     .filter(harcama => harcama.kullanim === 2)
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
 
+  const toplamBorc = harcamalar
+    .filter(harcama => harcama.kullanim === 3)
+    .reduce((acc, harcama) => acc + harcama.miktar, 0)
+
   const harcamaEditModalOpen = userId => {
     const modalEdit = harcamalar.find(modal => modal._id === userId)
     setModalMiktar(modalEdit.miktar)
@@ -482,6 +486,7 @@ function Harcama() {
                     <td data-title="İhtiyaç">{toplamIhtiyac}</td>
                     <td data-title="Yatırım">{toplamYatirim}</td>
                     <td data-title="Lüks">{toplamLuks}</td>
+                    <td data-title="Borç">{toplamBorc}</td>
                   </tr>
                   <tr>
                     <td>
