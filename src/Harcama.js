@@ -445,7 +445,7 @@ function Harcama() {
                             <b>0</b>
                           </td>
                         </>
-                      ) : (
+                      ) : harcama.kullanim === 3 ? (
                         <>
                           <td data-title="İhtiyaç" className="text-danger">
                             <b>0</b>
@@ -458,7 +458,7 @@ function Harcama() {
                           </td>
                           <td data-title="Borç">{harcama.miktar}</td>
                         </>
-                      )}
+                      ) : null}
                       <td data-title="Aksiyon">
                         <button
                           className="btn btn-warning me-2 text-white"
