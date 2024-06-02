@@ -99,6 +99,8 @@ function Harcama() {
       kullanimText = "Yatırım"
     } else if (modalEdit.kullanim === 2) {
       kullanimText = "Lüks"
+    } else if (modalEdit.kullanim === 3) {
+      kullanimText = "Borç"
     }
     setSelectedOptionModal(kullanimText)
   }
