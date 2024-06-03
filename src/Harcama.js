@@ -62,8 +62,8 @@ function Harcama() {
         aValue = a.kullanim === 2 ? a.miktar : 0
         bValue = b.kullanim === 2 ? b.miktar : 0
       } else if (sortConfig.key === "Borç") {
-        aValue = a.kullanim === 2 ? a.miktar : 0
-        bValue = b.kullanim === 2 ? b.miktar : 0
+        aValue = a.kullanim === 3 ? a.miktar : 0
+        bValue = b.kullanim === 3 ? b.miktar : 0
       }
 
       if (aValue < bValue) {
@@ -141,6 +141,8 @@ function Harcama() {
       kullanimTipi = 1
     } else if (selectedOption === "Lüks") {
       kullanimTipi = 2
+    } else if (selectedOption === "Borç") {
+      kullanimTipi = 3
     }
 
     const data = {
@@ -161,6 +163,7 @@ function Harcama() {
           },
         }
       )
+      console.log("response", response)
       setHarcamalar([...harcamalar, response.data])
       toast.success("Harcama eklendi!")
       setHarcama("")
@@ -453,6 +456,16 @@ function Harcama() {
           <ul className="list-group mt-1">
             <li className="list-group-item d-flex justify-content-between align-items-center">
               <table className="table">
+                <thead>
+                  <div className="d-flex">
+                    <input
+                      className="form-control mt-2"
+                      type="search"
+                      placeholder="Ara"
+                      aria-label="Search"
+                    />
+                  </div>
+                </thead>
                 <thead>
                   <tr>
                     <th>Açıklama</th>
