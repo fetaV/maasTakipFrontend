@@ -35,9 +35,7 @@ const Navbar = () => {
       <>
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
           <div className="container-fluid">
-            <a className="navbar-brand" href="#">
-              Logo
-            </a>
+            <a className="navbar-brand">Logo</a>
             <button
               className="navbar-toggler"
               type="button"
