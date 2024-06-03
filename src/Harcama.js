@@ -41,6 +41,10 @@ function Harcama() {
     .filter(harcama => harcama.kullanim === 2)
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
 
+  const toplamBorc = harcamalar
+    .filter(harcama => harcama.kullanim === 3)
+    .reduce((acc, harcama) => acc + harcama.miktar, 0)
+
   const handleSort = key => {
     let direction = "descending"
     if (sortConfig.key === key && sortConfig.direction === "descending") {
@@ -588,6 +592,7 @@ function Harcama() {
                     <td data-title="İhtiyaç">{toplamIhtiyac}</td>
                     <td data-title="Yatırım">{toplamYatirim}</td>
                     <td data-title="Lüks">{toplamLuks}</td>
+                    <td data-title="Borç">{toplamBorc}</td>
                   </tr>
                   <tr>
                     <td>
