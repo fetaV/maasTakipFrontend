@@ -21,7 +21,7 @@ function Home() {
             yatırımlarınızı ve lüks harcamalarınızı düzenleyin.
           </p>
           <p>
-            <a href="/" className="btn btn-light btn-lg mx-2">
+            <a href="/login" className="btn btn-light btn-lg mx-2">
               Uygulamayı Kullan
             </a>
             <a href="/" className="btn btn-outline-light btn-lg mx-2">
@@ -166,7 +166,7 @@ function Home() {
           <p className="lead mb-4">
             Finansal özgürlüğünüz için ilk adımı atın.
           </p>
-          <a href="/" className="btn btn-light btn-lg mx-2">
+          <a href="/register" className="btn btn-light btn-lg mx-2">
             Şimdi Üye Olun
           </a>
         </div>
