@@ -481,7 +481,7 @@ function Harcama() {
                       style={{ width: "15%" }}
                     >
                       <button className="btn p-0 m-0 border-0">
-                        İhtiyaç {getSortIcon("ihtiyac")}
+                        <b> İhtiyaç</b> {getSortIcon("ihtiyac")}
                       </button>
                     </th>
                     <th
@@ -489,7 +489,7 @@ function Harcama() {
                       style={{ width: "15%" }}
                     >
                       <button className="btn p-0 m-0 border-0">
-                        Yatırım {getSortIcon("yatirim")}
+                        <b>Yatırım</b> {getSortIcon("yatirim")}
                       </button>
                     </th>
                     <th
@@ -497,7 +497,7 @@ function Harcama() {
                       style={{ width: "15%" }}
                     >
                       <button className="btn p-0 m-0 border-0">
-                        Lüks {getSortIcon("lux")}
+                        <b> Lüks</b> {getSortIcon("lux")}
                       </button>
                     </th>
                     <th
@@ -505,7 +505,8 @@ function Harcama() {
                       style={{ width: "15%" }}
                     >
                       <button className="btn p-0 m-0 border-0">
-                        Borç{getSortIcon("Borç")}
+                        <b>Borç</b>
+                        {getSortIcon("Borç")}
                       </button>
                     </th>
                     <th>Aksiyon</th>
