@@ -184,7 +184,7 @@ function Harcama() {
   const editMaasModalOpen = maas => {
     console.log("bumodal")
     setMaasToEdit(maas)
-    setNewMaas(maas.maasMiktari)
+    setNewMaas(maas.maasMiktari - toplamBorc)
   }
   const editMaasSave = async () => {
     if (!maasToEdit) {
