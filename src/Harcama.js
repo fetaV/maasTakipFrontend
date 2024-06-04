@@ -30,11 +30,11 @@ function Harcama() {
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
 
   const yatirimMiktari =
-    maaslar.length > 0 ? maaslar[0].maasMiktari - toplamBorc * 0.2 : 0
+    maaslar.length > 0 ? (maaslar[0].maasMiktari - toplamBorc) * 0.2 : 0
   const luksMiktari =
-    maaslar.length > 0 ? maaslar[0].maasMiktari - toplamBorc * 0.3 : 0
+    maaslar.length > 0 ? (maaslar[0].maasMiktari - toplamBorc) * 0.3 : 0
   const ihtiyacMiktari =
-    maaslar.length > 0 ? maaslar[0].maasMiktari - toplamBorc * 0.5 : 0
+    maaslar.length > 0 ? (maaslar[0].maasMiktari - toplamBorc) * 0.5 : 0
 
   const toplamIhtiyac = harcamalar
     .filter(harcama => harcama.kullanim === 0)
@@ -455,7 +455,7 @@ function Harcama() {
                 data-bs-target="#maasEditModal"
                 onClick={() => editMaasModalOpen(maas)}
               >
-                Toplam Maaş Miktarı: {maas.maasMiktari}
+                Toplam Maaş Miktarı: {maas.maasMiktari - toplamBorc}
                 <FaPen className="ms-2" />
               </h4>
             ))}
