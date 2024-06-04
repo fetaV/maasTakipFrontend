@@ -627,6 +627,18 @@ function Harcama() {
                     >
                       {luksMiktari - toplamLuks}
                     </td>
+                    {maaslar.map(maas => (
+                      <td
+                        data-title="Kalan Lüks Tutarı"
+                        style={
+                          maas.maasMiktari - toplamBorc < 0
+                            ? { color: "red" }
+                            : {}
+                        }
+                      >
+                        {maas.maasMiktari - toplamBorc}
+                      </td>
+                    ))}
                   </tr>
                 </tbody>
               </table>
