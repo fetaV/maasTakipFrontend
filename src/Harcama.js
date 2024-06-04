@@ -25,9 +25,16 @@ function Harcama() {
     "Harcama seçeneği seçiniz"
   )
 
-  const yatirimMiktari = maaslar.length > 0 ? maaslar[0].maasMiktari * 0.2 : ""
-  const luksMiktari = maaslar.length > 0 ? maaslar[0].maasMiktari * 0.3 : ""
-  const ihtiyacMiktari = maaslar.length > 0 ? maaslar[0].maasMiktari * 0.5 : ""
+  const toplamBorc = harcamalar
+    .filter(harcama => harcama.kullanim === 3)
+    .reduce((acc, harcama) => acc + harcama.miktar, 0)
+
+  const yatirimMiktari =
+    maaslar.length > 0 ? maaslar[0].maasMiktari - toplamBorc * 0.2 : 0
+  const luksMiktari =
+    maaslar.length > 0 ? maaslar[0].maasMiktari - toplamBorc * 0.3 : 0
+  const ihtiyacMiktari =
+    maaslar.length > 0 ? maaslar[0].maasMiktari - toplamBorc * 0.5 : 0
 
   const toplamIhtiyac = harcamalar
     .filter(harcama => harcama.kullanim === 0)
@@ -39,10 +46,6 @@ function Harcama() {
 
   const toplamLuks = harcamalar
     .filter(harcama => harcama.kullanim === 2)
-    .reduce((acc, harcama) => acc + harcama.miktar, 0)
-
-  const toplamBorc = harcamalar
-    .filter(harcama => harcama.kullanim === 3)
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
 
   const handleSort = key => {
