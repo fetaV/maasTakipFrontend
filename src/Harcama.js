@@ -560,7 +560,7 @@ function Harcama() {
                             <b>0</b>
                           </td>
                           <td data-title="Lüks" className="text-danger">
-                            0
+                            <b>0</b>
                           </td>
                           <td data-title="Borç">{harcama.miktar}</td>
                         </>
