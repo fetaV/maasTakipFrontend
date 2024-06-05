@@ -520,7 +520,7 @@ function Harcama() {
                   </tr>
                 </thead>
                 <tbody>
-                  {sortedHarcamalar.map((harcama, index) => (
+                  {filteredHarcamalar.map((harcama, index) => (
                     <tr key={index}>
                       <td data-title="Harcama Seçeneği">{harcama.aciklama}</td>
                       {harcama.kullanim === 0 ? (
