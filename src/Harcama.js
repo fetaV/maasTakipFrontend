@@ -471,6 +471,8 @@ function Harcama() {
                       type="search"
                       placeholder="Ara"
                       aria-label="Search"
+                      value={searchTerm}
+                      onChange={e => setSearchTerm(e.target.value)}
                     />
                   </div>
                 </thead>
