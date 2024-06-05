@@ -96,6 +96,10 @@ function Harcama() {
     return null
   }
 
+  const filteredHarcamalar = sortedHarcamalar.filter(harcama =>
+    harcama.aciklama.toLowerCase().includes(searchTerm.toLowerCase())
+  )
+
   const harcamaEditModalOpen = userId => {
     const modalEdit = harcamalar.find(modal => modal._id === userId)
     setModalMiktar(modalEdit.miktar)
