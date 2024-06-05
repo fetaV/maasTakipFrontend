@@ -17,6 +17,7 @@ function Harcama() {
   const [maasToEdit, setMaasToEdit] = useState(null)
   const [harcamaToEdit, setHarcamaToEdit] = useState(null)
   const [deleteId, setDeleteId] = useState(null)
+  const [searchTerm, setSearchTerm] = useState("")
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" })
   const [selectedOption, setSelectedOption] = useState(
     "Harcama seçeneği seçiniz"
