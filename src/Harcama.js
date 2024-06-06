@@ -522,7 +522,15 @@ function Harcama() {
                 <tbody>
                   {filteredHarcamalar.map((harcama, index) => (
                     <tr key={index}>
-                      <td data-title="Harcama Seçeneği">{harcama.aciklama}</td>
+                      <td data-title="Harcama Seçeneği">
+                        {harcama.aciklama} <br />
+                        <div
+                          className="text-secondary"
+                          style={{ fontSize: "11px" }}
+                        >
+                          01.01.2023
+                        </div>
+                      </td>
                       {harcama.kullanim === 0 ? (
                         <>
                           <td data-title="İhtiyaç">{harcama.miktar}</td>
