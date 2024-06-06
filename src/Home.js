@@ -6,12 +6,13 @@ import {
   FaMoneyBillWave,
   FaCheckCircle,
 } from "react-icons/fa"
+import "./index.css" // Additional custom styles
 
 function Home() {
   return (
     <div>
       {/* Hero Section */}
-      <section className="jumbotron text-center p-5 bg-primary text-white">
+      <section className="jumbotron text-center p-5 bg-primary text-white hero-section">
         <div className="container">
           <h1 className="jumbotron-heading">
             50-30-20 Para Yönetim Uygulaması
@@ -21,10 +22,10 @@ function Home() {
             yatırımlarınızı ve lüks harcamalarınızı düzenleyin.
           </p>
           <p>
-            <a href="/login" className="btn btn-light btn-lg mx-2">
+            <a href="/login" className="btn btn-light btn-lg mx-2 hero-btn">
               Uygulamayı Kullan
             </a>
-            <a href="/" className="btn btn-outline-light btn-lg mx-2">
+            <a href="/" className="btn btn-outline-light btn-lg mx-2 hero-btn">
               Daha Fazla Bilgi
             </a>
           </p>
@@ -32,10 +33,10 @@ function Home() {
       </section>
 
       {/* Features Section */}
-      <div className="container py-5">
+      <div className="container py-5 features-section">
         <div className="row text-center">
           <div className="col-md-4 p-1">
-            <div className="card shadow-sm h-100">
+            <div className="card shadow-sm h-100 feature-card">
               <div className="card-body">
                 <FaWallet size={50} className="mb-3 text-primary" />
                 <h4 className="card-title">Harcamalarınızı Yönetin</h4>
@@ -47,7 +48,7 @@ function Home() {
             </div>
           </div>
           <div className="col-md-4 p-1">
-            <div className="card shadow-sm h-100">
+            <div className="card shadow-sm h-100 feature-card">
               <div className="card-body">
                 <FaMoneyBillWave size={50} className="mb-3 text-success" />
                 <h4 className="card-title">Borç Takibi</h4>
@@ -59,7 +60,7 @@ function Home() {
             </div>
           </div>
           <div className="col-md-4 p-1">
-            <div className="card shadow-sm h-100">
+            <div className="card shadow-sm h-100 feature-card">
               <div className="card-body">
                 <FaChartLine size={50} className="mb-3 text-info" />
                 <h4 className="card-title">Yatırımlarınızı Planlayın</h4>
@@ -74,12 +75,12 @@ function Home() {
       </div>
 
       {/* How It Works Section */}
-      <section className="bg-light py-5">
+      <section className="bg-light py-5 how-it-works-section">
         <div className="container">
           <h2 className="text-center mb-4">Nasıl Çalışır?</h2>
           <div className="row text-center">
             <div className="col-md-4 p-1">
-              <div className="card shadow-sm h-100">
+              <div className="card shadow-sm h-100 how-it-works-card">
                 <div className="card-body">
                   <FaCheckCircle size={50} className="mb-3 text-success" />
                   <h4 className="card-title">Adım 1: Maaşınızı Girin</h4>
@@ -90,7 +91,7 @@ function Home() {
               </div>
             </div>
             <div className="col-md-4 p-1">
-              <div className="card shadow-sm h-100">
+              <div className="card shadow-sm h-100 how-it-works-card">
                 <div className="card-body">
                   <FaCheckCircle size={50} className="mb-3 text-success" />
                   <h4 className="card-title">Adım 2: Kategorilere Ayırın</h4>
@@ -102,7 +103,7 @@ function Home() {
               </div>
             </div>
             <div className="col-md-4 p-1">
-              <div className="card shadow-sm h-100">
+              <div className="card shadow-sm h-100 how-it-works-card">
                 <div className="card-body">
                   <FaCheckCircle size={50} className="mb-3 text-success" />
                   <h4 className="card-title">Adım 3: Takip Edin</h4>
@@ -118,12 +119,12 @@ function Home() {
       </section>
 
       {/* Testimonials Section */}
-      <section className="py-5">
+      <section className="py-5 testimonials-section">
         <div className="container">
           <h2 className="text-center mb-4">Müşteri Yorumları</h2>
           <div className="row text-center">
             <div className="col-md-4 p-1">
-              <div className="card shadow-sm h-100">
+              <div className="card shadow-sm h-100 testimonial-card">
                 <div className="card-body">
                   <p className="card-text">
                     "50-30-20 uygulaması sayesinde harcamalarımı çok daha iyi
@@ -134,7 +135,7 @@ function Home() {
               </div>
             </div>
             <div className="col-md-4 p-1">
-              <div className="card shadow-sm h-100">
+              <div className="card shadow-sm h-100 testimonial-card">
                 <div className="card-body">
                   <p className="card-text">
                     "Bu uygulama ile yatırım yapmayı öğrendim ve finansal
@@ -145,7 +146,7 @@ function Home() {
               </div>
             </div>
             <div className="col-md-4 p-1">
-              <div className="card shadow-sm h-100">
+              <div className="card shadow-sm h-100 testimonial-card">
                 <div className="card-body">
                   <p className="card-text">
                     "Borçlarımı takip etmek hiç bu kadar kolay olmamıştı.
@@ -160,20 +161,23 @@ function Home() {
       </section>
 
       {/* Call to Action Section */}
-      <section className="bg-primary text-white text-center py-5">
+      <section className="bg-primary text-white text-center py-5 call-to-action-section">
         <div className="container">
           <h2 className="mb-4">Hemen Başlayın</h2>
           <p className="lead mb-4">
             Finansal özgürlüğünüz için ilk adımı atın.
           </p>
-          <a href="/register" className="btn btn-light btn-lg mx-2">
+          <a
+            href="/register"
+            className="btn btn-light btn-lg mx-2 call-to-action-btn"
+          >
             Şimdi Üye Olun
           </a>
         </div>
       </section>
 
       {/* Footer */}
-      <footer className="bg-dark text-white text-center py-4">
+      <footer className="bg-dark text-white text-center py-4 footer-section">
         <div className="container">
           <p>&copy; 2024 50-30-20 Para Yönetim Uygulaması</p>
         </div>
