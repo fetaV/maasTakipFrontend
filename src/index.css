@@ -94,6 +94,7 @@ table,tr,th,td{border:none}
 .testimonials-section .testimonial-card {
   background: #f8f9fa;
   border-left: 4px solid #007bff;
+  border-bottom: 4px solid #007bff;
 }
 
 .testimonials-section .testimonial-card:hover {
