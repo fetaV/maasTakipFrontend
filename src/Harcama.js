@@ -482,13 +482,13 @@ function Harcama() {
                         </button>
                         <ul className="dropdown-menu">
                           <li>
-                            <a className="dropdown-item">01.01.2023</a>
+                            <div className="dropdown-item">01.01.2023</div>
                           </li>
                           <li>
-                            <a className="dropdown-item">01.01.2023</a>
+                            <div className="dropdown-item">01.01.2023</div>
                           </li>
                           <li>
-                            <a className="dropdown-item">01.01.2023</a>
+                            <div className="dropdown-item">01.01.2023</div>
                           </li>
                         </ul>
                       </div>
