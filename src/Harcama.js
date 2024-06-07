@@ -470,7 +470,7 @@ function Harcama() {
               <table className="table">
                 <thead>
                   <tr>
-                    <th>
+                    <th className="border border-0">
                       <div className="dropdown">
                         <button
                           className="btn btn-secondary dropdown-toggle"
@@ -478,28 +478,22 @@ function Harcama() {
                           data-bs-toggle="dropdown"
                           aria-expanded="false"
                         >
-                          Dropdown button
+                          Tarih Seçiniz
                         </button>
                         <ul className="dropdown-menu">
                           <li>
-                            <a className="dropdown-item" href="#">
-                              Action
-                            </a>
+                            <a className="dropdown-item">01.01.2023</a>
                           </li>
                           <li>
-                            <a className="dropdown-item" href="#">
-                              Another action
-                            </a>
+                            <a className="dropdown-item">01.01.2023</a>
                           </li>
                           <li>
-                            <a className="dropdown-item" href="#">
-                              Something else here
-                            </a>
+                            <a className="dropdown-item">01.01.2023</a>
                           </li>
                         </ul>
                       </div>
                     </th>
-                    <th>
+                    <th className="border border-0">
                       <input
                         className="form-control mt-2"
                         type="search"
@@ -509,10 +503,6 @@ function Harcama() {
                         onChange={e => setSearchTerm(e.target.value)}
                       />
                     </th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
-                    <th></th>
                   </tr>
                 </thead>
                 <thead>
