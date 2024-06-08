@@ -550,12 +550,21 @@ function Harcama() {
                     <tr key={index}>
                       <td data-title="Harcama Seçeneği">
                         {harcama.aciklama} <br />
-                        <div
-                          className="text-secondary"
-                          style={{ fontSize: "11px" }}
-                        >
-                          01.01.2023
-                        </div>
+                        {harcama.createdAt === harcama.updatedAt ? (
+                          <div
+                            className="text-secondary"
+                            style={{ fontSize: "11px" }}
+                          >
+                            Oluşturma Tarihi: {harcama.createdAt}
+                          </div>
+                        ) : (
+                          <div
+                            className="text-secondary"
+                            style={{ fontSize: "11px" }}
+                          >
+                            Düzenleme Tarihi:{harcama.updatedAt}
+                          </div>
+                        )}
                       </td>
                       {harcama.kullanim === 0 ? (
                         <>
