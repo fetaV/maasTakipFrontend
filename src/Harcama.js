@@ -490,15 +490,13 @@ function Harcama() {
                           Tarih Seçiniz
                         </button>
                         <ul className="dropdown-menu">
-                          <li>
-                            <div className="dropdown-item">01.01.2023</div>
-                          </li>
-                          <li>
-                            <div className="dropdown-item">01.01.2023</div>
-                          </li>
-                          <li>
-                            <div className="dropdown-item">01.01.2023</div>
-                          </li>
+                          {filteredHarcamalar.map(harcama => (
+                            <li>
+                              <div className="dropdown-item">
+                                {formatDate(harcama.updatedAt)}
+                              </div>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </th>
