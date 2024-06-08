@@ -18,6 +18,7 @@ function Harcama() {
   const [harcamaToEdit, setHarcamaToEdit] = useState(null)
   const [deleteId, setDeleteId] = useState(null)
   const [searchTerm, setSearchTerm] = useState("")
+  const [selectedDate, setSelectedDate] = useState(null)
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" })
   const [selectedOption, setSelectedOption] = useState(
     "Harcama seçeneği seçiniz"
@@ -48,6 +49,10 @@ function Harcama() {
   const toplamLuks = harcamalar
     .filter(harcama => harcama.kullanim === 2)
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
+
+  const handleDateSelect = date => {
+    setSelectedDate(date)
+  }
 
   const formatDate = dateStr => {
     if (!dateStr) return "Geçersiz tarih"
@@ -104,8 +109,10 @@ function Harcama() {
     return null
   }
 
-  const filteredHarcamalar = sortedHarcamalar.filter(harcama =>
-    harcama.aciklama.toLowerCase().includes(searchTerm.toLowerCase())
+  const filteredHarcamalar = sortedHarcamalar.filter(
+    harcama =>
+      (!selectedDate || formatDate(harcama.updatedAt) === selectedDate) &&
+      harcama.aciklama.toLowerCase().includes(searchTerm.toLowerCase())
   )
 
   const harcamaEditModalOpen = userId => {
@@ -502,7 +509,10 @@ function Harcama() {
                             }, [])
                             .map((uniqueDate, index) => (
                               <li key={index}>
-                                <div className="dropdown-item">
+                                <div
+                                  className="dropdown-item"
+                                  onClick={() => handleDateSelect(uniqueDate)}
+                                >
                                   {uniqueDate}
                                 </div>
                               </li>
