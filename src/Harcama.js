@@ -49,6 +49,14 @@ function Harcama() {
     .filter(harcama => harcama.kullanim === 2)
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
 
+  const formatDate = dateStr => {
+    if (!dateStr) return "Geçersiz tarih"
+    const date = new Date(dateStr)
+    if (isNaN(date)) return "Geçersiz tarih"
+    const options = { day: "numeric", month: "long", year: "numeric" }
+    return new Intl.DateTimeFormat("tr-TR", options).format(date)
+  }
+
   const handleSort = key => {
     let direction = "descending"
     if (sortConfig.key === key && sortConfig.direction === "descending") {
@@ -555,14 +563,14 @@ function Harcama() {
                             className="text-secondary"
                             style={{ fontSize: "11px" }}
                           >
-                            Oluşturma Tarihi: {harcama.createdAt}
+                            Oluşturma Tarihi:{formatDate(harcama.createdAt)}
                           </div>
                         ) : (
                           <div
                             className="text-secondary"
                             style={{ fontSize: "11px" }}
                           >
-                            Düzenleme Tarihi:{harcama.updatedAt}
+                            Düzenleme Tarihi:{formatDate(harcama.updatedAt)}
                           </div>
                         )}
                       </td>
