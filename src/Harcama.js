@@ -490,16 +490,27 @@ function Harcama() {
                           Tarih Seçiniz
                         </button>
                         <ul className="dropdown-menu">
-                          {filteredHarcamalar.map(harcama => (
-                            <li>
-                              <div className="dropdown-item">
-                                {formatDate(harcama.updatedAt)}
-                              </div>
-                            </li>
-                          ))}
+                          {filteredHarcamalar
+                            .reduce((uniqueDates, harcama) => {
+                              const formattedDate = formatDate(
+                                harcama.updatedAt
+                              )
+                              if (!uniqueDates.includes(formattedDate)) {
+                                uniqueDates.push(formattedDate)
+                              }
+                              return uniqueDates
+                            }, [])
+                            .map((uniqueDate, index) => (
+                              <li key={index}>
+                                <div className="dropdown-item">
+                                  {uniqueDate}
+                                </div>
+                              </li>
+                            ))}
                         </ul>
                       </div>
                     </th>
+
                     <th className="border border-0">
                       <input
                         className="form-control mt-2"
