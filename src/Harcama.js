@@ -23,7 +23,6 @@ function Harcama() {
   const [selectedOption, setSelectedOption] = useState(
     "Harcama seçeneği seçiniz"
   )
-  const [selectedDateOption, setSelectedDateOption] = useState("Tarih Seçiniz")
   const [selectedOptionModal, setSelectedOptionModal] = useState(
     "Harcama seçeneği seçiniz"
   )
@@ -495,7 +494,7 @@ function Harcama() {
                           data-bs-toggle="dropdown"
                           aria-expanded="false"
                         >
-                          Tarih Seçiniz
+                          {selectedDate ? selectedDate : "Tarih Seçiniz"}
                         </button>
                         <ul className="dropdown-menu">
                           {filteredHarcamalar
