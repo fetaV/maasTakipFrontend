@@ -62,7 +62,7 @@ function Harcama() {
     return new Intl.DateTimeFormat("tr-TR", options).format(date)
   }
 
-  const handleSort = key => {
+  const aramaFiltresi = key => {
     let direction = "descending"
     if (sortConfig.key === key && sortConfig.direction === "descending") {
       direction = "ascending"
@@ -546,7 +546,7 @@ function Harcama() {
                   <tr>
                     <th>Açıklama</th>
                     <th
-                      onClick={() => handleSort("ihtiyac")}
+                      onClick={() => aramaFiltresi("ihtiyac")}
                       style={{ width: "15%" }}
                     >
                       <button className="btn p-0 m-0 border-0">
@@ -554,7 +554,7 @@ function Harcama() {
                       </button>
                     </th>
                     <th
-                      onClick={() => handleSort("yatirim")}
+                      onClick={() => aramaFiltresi("yatirim")}
                       style={{ width: "15%" }}
                     >
                       <button className="btn p-0 m-0 border-0">
@@ -562,7 +562,7 @@ function Harcama() {
                       </button>
                     </th>
                     <th
-                      onClick={() => handleSort("lux")}
+                      onClick={() => aramaFiltresi("lux")}
                       style={{ width: "15%" }}
                     >
                       <button className="btn p-0 m-0 border-0">
@@ -570,7 +570,7 @@ function Harcama() {
                       </button>
                     </th>
                     <th
-                      onClick={() => handleSort("Borç")}
+                      onClick={() => aramaFiltresi("Borç")}
                       style={{ width: "15%" }}
                     >
                       <button className="btn p-0 m-0 border-0">
