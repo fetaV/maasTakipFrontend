@@ -109,6 +109,14 @@ function Harcama() {
     return null
   }
 
+  const uniqueDates = sortedHarcamalar.reduce((uniqueDates, harcama) => {
+    const formattedDate = formatDate(harcama.updatedAt)
+    if (!uniqueDates.includes(formattedDate)) {
+      uniqueDates.push(formattedDate)
+    }
+    return uniqueDates
+  }, [])
+
   const filteredHarcamalar = sortedHarcamalar.filter(
     harcama =>
       (!selectedDate || formatDate(harcama.updatedAt) === selectedDate) &&
@@ -497,26 +505,16 @@ function Harcama() {
                           {selectedDate ? selectedDate : "Tarih Seçiniz"}
                         </button>
                         <ul className="dropdown-menu">
-                          {filteredHarcamalar
-                            .reduce((uniqueDates, harcama) => {
-                              const formattedDate = formatDate(
-                                harcama.updatedAt
-                              )
-                              if (!uniqueDates.includes(formattedDate)) {
-                                uniqueDates.push(formattedDate)
-                              }
-                              return uniqueDates
-                            }, [])
-                            .map((uniqueDate, index) => (
-                              <li key={index}>
-                                <div
-                                  className="dropdown-item"
-                                  onClick={() => handleDateSelect(uniqueDate)}
-                                >
-                                  {uniqueDate}
-                                </div>
-                              </li>
-                            ))}
+                          {uniqueDates.map((uniqueDate, index) => (
+                            <li key={index}>
+                              <div
+                                className="dropdown-item"
+                                onClick={() => handleDateSelect(uniqueDate)}
+                              >
+                                {uniqueDate}
+                              </div>
+                            </li>
+                          ))}
                         </ul>
                       </div>
                     </th>
