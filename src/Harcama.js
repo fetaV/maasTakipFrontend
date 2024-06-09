@@ -50,7 +50,7 @@ function Harcama() {
     .filter(harcama => harcama.kullanim === 2)
     .reduce((acc, harcama) => acc + harcama.miktar, 0)
 
-  const handleDateSelect = date => {
+  const tarihSec = date => {
     setSelectedDate(date)
   }
 
@@ -209,7 +209,7 @@ function Harcama() {
     }
   }
 
-  const handleClearFilter = () => {
+  const tarihFiltrelemeSilme = () => {
     setSelectedDate(null)
   }
 
@@ -513,7 +513,7 @@ function Harcama() {
                             <li key={index}>
                               <div
                                 className="dropdown-item"
-                                onClick={() => handleDateSelect(uniqueDate)}
+                                onClick={() => tarihSec(uniqueDate)}
                               >
                                 {uniqueDate}
                               </div>
@@ -521,7 +521,7 @@ function Harcama() {
                           ))}
                           <button
                             className="btn"
-                            onClick={handleClearFilter}
+                            onClick={tarihFiltrelemeSilme}
                             style={{ marginTop: "10px" }}
                           >
                             Filtreyi Temizle
