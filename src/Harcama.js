@@ -23,6 +23,7 @@ function Harcama() {
   const [selectedOption, setSelectedOption] = useState(
     "Harcama seçeneği seçiniz"
   )
+  const [selectedDateOption, setSelectedDateOption] = useState("Tarih Seçiniz")
   const [selectedOptionModal, setSelectedOptionModal] = useState(
     "Harcama seçeneği seçiniz"
   )
