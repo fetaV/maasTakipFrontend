@@ -209,6 +209,10 @@ function Harcama() {
     }
   }
 
+  const handleClearFilter = () => {
+    setSelectedDate(null)
+  }
+
   const editMaasModalOpen = maas => {
     console.log("bumodal")
     setMaasToEdit(maas)
@@ -515,6 +519,13 @@ function Harcama() {
                               </div>
                             </li>
                           ))}
+                          <button
+                            className="btn"
+                            onClick={handleClearFilter}
+                            style={{ marginTop: "10px" }}
+                          >
+                            Filtreyi Temizle
+                          </button>
                         </ul>
                       </div>
                     </th>
