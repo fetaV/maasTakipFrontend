@@ -297,7 +297,7 @@ function Harcama() {
       .catch(err => console.error(err))
 
     axios
-      .get("https://maastakipbackend.onrender.com/api/harcama", {
+      .get("https://maastakipbackend.onrender.com/api/userharcamalar", {
         headers: {
           Authorization: token,
         },
