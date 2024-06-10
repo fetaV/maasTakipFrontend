@@ -247,6 +247,7 @@ function Harcama() {
           },
         }
       )
+      console.log(response)
       toast.success("User updated successfully!")
       setTimeout(() => {
         window.location.reload()
