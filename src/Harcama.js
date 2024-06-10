@@ -211,6 +211,9 @@ function Harcama() {
         setHarcamalar([...harcamalar, response.data])
       }
       toast.success("Harcama eklendi!")
+      setTimeout(() => {
+        window.location.reload()
+      }, 500)
       setHarcama("")
       setMiktar("")
       setSelectedOption("Harcama seçeneği seçiniz")
