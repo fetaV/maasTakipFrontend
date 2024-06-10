@@ -27,9 +27,11 @@ function Harcama() {
     "Harcama seçeneği seçiniz"
   )
 
-  const toplamBorc = harcamalar
-    .filter(harcama => harcama.kullanim === 3)
-    .reduce((acc, harcama) => acc + harcama.miktar, 0)
+  const toplamBorc = Array.isArray(harcamalar)
+    ? harcamalar
+        .filter(harcama => harcama.kullanim === 3)
+        .reduce((acc, harcama) => acc + harcama.miktar, 0)
+    : 0
 
   const yatirimMiktari =
     maaslar.length > 0 ? (maaslar[0].maasMiktari - toplamBorc) * 0.2 : 0
@@ -117,11 +119,15 @@ function Harcama() {
     return uniqueDates
   }, [])
 
-  const filteredHarcamalar = sortedHarcamalar.filter(
-    harcama =>
-      (!selectedDate || formatDate(harcama.updatedAt) === selectedDate) &&
-      harcama.aciklama.toLowerCase().includes(searchTerm.toLowerCase())
-  )
+  const filteredHarcamalar = Array.isArray(harcamalar)
+    ? harcamalar.filter(
+        harcama =>
+          (!selectedDate || formatDate(harcama.updatedAt) === selectedDate) &&
+          (harcama.aciklama?.toLowerCase() || "").includes(
+            searchTerm.toLowerCase()
+          )
+      )
+    : []
 
   const harcamaEditModalOpen = userId => {
     const modalEdit = harcamalar.find(modal => modal._id === userId)
@@ -199,13 +205,18 @@ function Harcama() {
         }
       )
       console.log("response", response)
-      setHarcamalar([...harcamalar, response.data])
+      if (response.data && response.data.harcamalar) {
+        setHarcamalar([...harcamalar, response.data])
+      } else {
+        setHarcamalar([...harcamalar, response.data])
+      }
       toast.success("Harcama eklendi!")
       setHarcama("")
       setMiktar("")
       setSelectedOption("Harcama seçeneği seçiniz")
     } catch (error) {
       console.error("Error saving the data", error)
+      toast.error("Harcama kaydedilirken bir hata oluştu.")
     }
   }
 
@@ -303,8 +314,11 @@ function Harcama() {
         },
       })
       .then(res => {
-        console.log("data", res.data)
-        setHarcamalar(res.data)
+        if (res.data && Array.isArray(res.data.harcamalar)) {
+          setHarcamalar(res.data.harcamalar)
+        } else {
+          console.error("Unexpected response format", res.data)
+        }
       })
       .catch(err => console.error(err))
   }, [])
