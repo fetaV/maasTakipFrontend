@@ -204,7 +204,6 @@ function Harcama() {
           },
         }
       )
-      console.log("response", response)
       if (response.data && response.data.harcamalar) {
         setHarcamalar([...harcamalar, response.data])
       } else {
@@ -228,7 +227,6 @@ function Harcama() {
   }
 
   const editMaasModalOpen = maas => {
-    console.log("bumodal")
     setMaasToEdit(maas)
     setNewMaas(maas.maasMiktari - toplamBorc)
   }
@@ -249,7 +247,6 @@ function Harcama() {
           },
         }
       )
-      console.log(response)
       toast.success("User updated successfully!")
       setTimeout(() => {
         window.location.reload()
