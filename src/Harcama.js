@@ -475,7 +475,7 @@ function Harcama() {
                     id="miktar"
                     value={miktar}
                     onChange={e => setMiktar(e.target.value)}
-                    placeholder="Miktar"
+                    placeholder="Miktar giriniz"
                     required
                   />
                 </div>
