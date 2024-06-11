@@ -119,15 +119,11 @@ function Harcama() {
     return uniqueDates
   }, [])
 
-  const filteredHarcamalar = Array.isArray(harcamalar)
-    ? harcamalar.filter(
-        harcama =>
-          (!selectedDate || formatDate(harcama.updatedAt) === selectedDate) &&
-          (harcama.aciklama?.toLowerCase() || "").includes(
-            searchTerm.toLowerCase()
-          )
-      )
-    : []
+  const filteredHarcamalar = sortedHarcamalar.filter(
+    harcama =>
+      (!selectedDate || formatDate(harcama.updatedAt) === selectedDate) &&
+      (harcama.aciklama?.toLowerCase() || "").includes(searchTerm.toLowerCase())
+  )
 
   const harcamaEditModalOpen = userId => {
     const modalEdit = harcamalar.find(modal => modal._id === userId)
@@ -156,6 +152,7 @@ function Harcama() {
   const kullanimOptionSelect = option => {
     setSelectedOption(option)
   }
+
   const kullanimOptionSelectModal = option => {
     setSelectedOptionModal(option)
 
@@ -230,6 +227,7 @@ function Harcama() {
     setMaasToEdit(maas)
     setNewMaas(maas.maasMiktari - toplamBorc)
   }
+
   const editMaasSave = async () => {
     if (!maasToEdit) {
       console.error("maasToEdit is not set")
